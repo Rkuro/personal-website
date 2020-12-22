@@ -6,6 +6,7 @@ import Footer from '../src/Footer';
 import { motion } from 'framer-motion';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import CircleImg from '../src/CircleImg';
 
 export default function Index() {
     const globalClasses = globalStyles();
@@ -57,7 +58,7 @@ export default function Index() {
                     </Grid>
                     <Grid item xs={12} sm={6} className={globalClasses.paddingDefault}>
                         <motion.div animate={fadeIn} transition={{ease: "easeIn"}}>
-                            <img src="/blue-hills.jpg" alt="me-with-faye" />
+                            <CircleImg src="/blue-hills.jpg" />
                         </motion.div>
                     </Grid>
                 </Grid>
