@@ -1,17 +1,68 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { globalStyles } from '../src/GlobalStyles';
 import clsx from 'clsx';
+import { Grid, Typography } from '@material-ui/core';
+import Footer from '../src/Footer';
+import { motion } from 'framer-motion';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 export default function Index() {
     const globalClasses = globalStyles();
+
+    const fadeIn = {
+        opacity: [0, 1]
+    }
+
+    const animate = {
+        opacity: [0, 1],
+        y: [-100, 0]
+    }
+
+    const buttonAnimate = {
+        x: [0, 0, -5, 0, 20, 0, 0]
+    }
+    const buttonTransition = {
+        loop: Infinity,
+        ease: "easeIn",
+        duration: 1.5
+    }
+
     return (
-        <div className={clsx(globalClasses.fullScreenHeight, globalClasses.centerAll)}>
-            
-            <Typography variant="h4" >
-                Coming soon!
-            </Typography>
-            {/* <Footer /> */}
-        </div>
+        <React.Fragment>
+            <div className={clsx(globalClasses.fullScreenHeight, globalClasses.centerAll)}>
+                
+                <Grid container>
+                    <Grid item xs={12} sm={6} className={clsx(globalClasses.centerAll, globalClasses.paddingDefault)}>
+                        <div>
+                            <motion.div className={globalClasses.centerAll} 
+                                        animate={animate} 
+                                        transition={{ease: "easeInOut", delay: 0.2}}>
+                                <Typography variant="h1">Hi.</Typography>
+                            </motion.div>
+                            <motion.div animate={animate} transition={{ease: "easeInOut", delay: 2}}>
+                                <Typography variant="h1"> I'm Robin.</Typography>
+                            </motion.div>
+                            <motion.div className={globalClasses.centerAll}  animate={animate} transition={{ease: "easeInOut", delay: 3}}>
+                                <Typography variant="h6"> Check out my stuff</Typography>
+                                <motion.div animate={buttonAnimate} transition={buttonTransition}>
+                                    <IconButton aria-label="go-to-stuff">
+                                        <ArrowForwardIcon />
+                                    </IconButton>    
+                                </motion.div>
+                                
+                            </motion.div>
+                        </div>
+
+                    </Grid>
+                    <Grid item xs={12} sm={6} className={globalClasses.paddingDefault}>
+                        <motion.div animate={fadeIn} transition={{ease: "easeIn"}}>
+                            <img src="/blue-hills.jpg" alt="me-with-faye" />
+                        </motion.div>
+                    </Grid>
+                </Grid>
+            </div>
+            <Footer />
+        </React.Fragment>
     );
 }
