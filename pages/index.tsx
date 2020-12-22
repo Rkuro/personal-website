@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { Grid, Typography } from '@material-ui/core';
 import Footer from '../src/Footer';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
@@ -28,19 +27,6 @@ export default function Index() {
         ease: "easeIn",
         duration: 1.5
     }
-    /*
-    @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-    }
-    */
 
     return (
         <React.Fragment>
@@ -71,7 +57,7 @@ export default function Index() {
                     </Grid>
                     <Grid item xs={12} sm={6} className={globalClasses.paddingDefault}>
                         <motion.div animate={fadeIn} transition={{ease: "easeIn"}}>
-                            <Image src="/blue-hills.jpg" alt="me" width="4032" height="3024" layout="responsive"/>
+                            <img src="/blue-hills.jpg" alt="me-with-faye" />
                         </motion.div>
                     </Grid>
                 </Grid>
