@@ -68,8 +68,17 @@ export default function Index() {
             </div>
 
             {/* Map & Timeline */}
-            <div className={globalClasses.fullScreenHeight}>
-                <Map />
+            <div className={clsx(globalClasses.fullScreenHeight, globalClasses.flex)}>
+                <Grid container>
+                    <Grid item xs={12} sm={7} alignItems="center" justifyContent="center">
+                        <div className={globalClasses.mapContainer}>
+                            <Map />
+                        </div>
+                    </Grid>
+                    <Grid item xs={12} sm={5}>
+
+                    </Grid>
+                </Grid>
             </div>
             <Footer />
         </React.Fragment>

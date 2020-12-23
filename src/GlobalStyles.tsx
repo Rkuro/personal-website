@@ -5,6 +5,9 @@ export const globalStyles = makeStyles((theme: Theme) =>{
         fullScreenHeight: {
             height: "100vh"
         },
+        flex: {
+            display: "flex"
+        },
         centerAll: {
             display: "flex",
             justifyContent: "center",
@@ -12,11 +15,19 @@ export const globalStyles = makeStyles((theme: Theme) =>{
         },
         footer: {
             position: "absolute",
-            bottom: "10px",
-            width: "100%"
+            width: "100%",
+            padding: theme.spacing(3),
         },
         paddingDefault: {
             padding: theme.spacing(3)
+        },
+        mapContainer: {
+            display: "flex",
+            flex: 1,
+            height: "60vh",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "6vh"
         }
     };
 });
