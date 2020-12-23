@@ -8,6 +8,10 @@ export const globalStyles = makeStyles((theme: Theme) =>{
         flex: {
             display: "flex"
         },
+        flexColumn: {
+            display: "flex",
+            flexDirection: "column"
+        },
         centerAll: {
             display: "flex",
             justifyContent: "center",
@@ -22,12 +26,10 @@ export const globalStyles = makeStyles((theme: Theme) =>{
             padding: theme.spacing(3)
         },
         mapContainer: {
-            display: "flex",
             flex: 1,
-            height: "60vh",
             alignItems: "center",
             justifyContent: "center",
-            padding: "6vh"
+            padding: theme.spacing(4)
         }
     };
 });

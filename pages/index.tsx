@@ -1,7 +1,7 @@
 import React from 'react';
 import { globalStyles } from '../src/GlobalStyles';
 import clsx from 'clsx';
-import { Grid, Typography } from '@material-ui/core';
+import { Divider, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import Footer from '../src/Footer';
 import { motion } from 'framer-motion';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,8 +9,19 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import CircleImg from '../src/CircleImg';
 import Map from '../src/Map';
 
+const localStyles = makeStyles((theme: Theme) => {
+    return {
+        sectionHeader: {
+            padding: theme.spacing(5),
+            width: "100%",
+            textAlign: "center"
+        }
+    };
+});
+
 export default function Index() {
     const globalClasses = globalStyles();
+    const localClasses = localStyles();
 
     const fadeIn = {
         opacity: [0, 1]
@@ -67,16 +78,27 @@ export default function Index() {
                 </Grid>
             </div>
 
+            <Divider orientation="horizontal" />
+
+
             {/* Map & Timeline */}
             <div className={clsx(globalClasses.fullScreenHeight, globalClasses.flex)}>
                 <Grid container>
-                    <Grid item xs={12} sm={7} alignItems="center" justifyContent="center">
+                    <Grid item xs={12} sm={7} className={globalClasses.flexColumn}>
+                        <div className={localClasses.sectionHeader}>
+                            <Typography variant="h4">Space</Typography>
+                        </div>
                         <div className={globalClasses.mapContainer}>
                             <Map />
                         </div>
                     </Grid>
-                    <Grid item xs={12} sm={5}>
 
+                    <Divider orientation="vertical" flexItem />
+
+                    <Grid item xs={12} sm={4}>
+                        <div className={localClasses.sectionHeader}>
+                            <Typography variant="h4">Time</Typography>
+                        </div>
                     </Grid>
                 </Grid>
             </div>
