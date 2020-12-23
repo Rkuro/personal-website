@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import CircleImg from '../src/CircleImg';
+import Map from '../src/Map';
 
 export default function Index() {
     const globalClasses = globalStyles();
@@ -31,6 +32,8 @@ export default function Index() {
 
     return (
         <React.Fragment>
+
+            {/* Intro */}
             <div className={clsx(globalClasses.fullScreenHeight, globalClasses.centerAll)}>
                 
                 <Grid container>
@@ -62,6 +65,11 @@ export default function Index() {
                         </motion.div>
                     </Grid>
                 </Grid>
+            </div>
+
+            {/* Map & Timeline */}
+            <div className={globalClasses.fullScreenHeight}>
+                <Map />
             </div>
             <Footer />
         </React.Fragment>
