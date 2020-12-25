@@ -1,26 +1,46 @@
 import React from 'react';
 import { globalStyles } from '../src/GlobalStyles';
 import clsx from 'clsx';
-import { Divider, Grid, makeStyles, Typography } from '@material-ui/core';
+import { Button, Divider, Grid, makeStyles, TextField, Theme, Typography } from '@material-ui/core';
 import Footer from '../src/Footer';
 import { motion } from 'framer-motion';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import CircleImg from '../src/CircleImg';
 import Map from '../src/Map';
-import theme from '../src/theme';
 
-const localStyles = makeStyles(() => {
+const localStyles = makeStyles((theme:Theme) => {
     return {
+        personalPic: {
+            maxWidth: "35vw"
+        },
+        section: {
+            padding: `${theme.spacing(3)}px`
+        },
         sectionHeader: {
             width: "100%",
             textAlign: "center",
-            padding: `${theme.spacing(2)}px 0`
+            paddingBottom: `${theme.spacing(5)}px`
         },
         sectionContainer: {
             flex: 1,
             alignItems: "center",
             justifyContent: "center",
+        },
+        contactContainer: {
+            border: theme.palette.divider
+        },
+        contactForm: {
+            minWidth: "300px",
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: theme.shape.borderRadius,
+            '& .MuiTextField-root': {
+                margin: theme.spacing(1)
+            },
+            '& .MuiButtonBase-root': {
+                margin: theme.spacing(1)
+            },
         }
     };
 });
@@ -76,8 +96,8 @@ export default function Index() {
                         </div>
 
                     </Grid>
-                    <Grid item xs={12} sm={6} className={globalClasses.paddingDefault}>
-                        <motion.div animate={fadeIn} transition={{ease: "easeIn"}}>
+                    <Grid item xs={12} sm={6} className={clsx(globalClasses.paddingDefault, globalClasses.centerAll)}>
+                        <motion.div animate={fadeIn} transition={{ease: "easeIn"}} className={clsx(localClasses.personalPic, globalClasses.flexGrow)}>
                             <CircleImg src="/blue-hills.jpg" />
                         </motion.div>
                     </Grid>
@@ -88,24 +108,66 @@ export default function Index() {
 
 
             {/* Map & Timeline */}
-            <div className={clsx(globalClasses.fullScreenHeight, globalClasses.flex, globalClasses.lightBackground, globalClasses.flexColumn)}>
-                <div className={clsx(globalClasses.centerAll, localClasses.sectionHeader)}>
-                    <Typography variant="h4">Timeline</Typography>
+            <div className={clsx(globalClasses.fullScreenHeight, globalClasses.lightBackground, globalClasses.flex)}>
+                <div className={clsx(globalClasses.flex, globalClasses.flexColumn, globalClasses.flexGrow, localClasses.section)}>
+                    <div className={clsx(globalClasses.centerAll, localClasses.sectionHeader)}>
+                        <Typography variant="h4" className={globalClasses.underlineBorder}>Timeline</Typography>
+                    </div>
+                    <Grid container className={globalClasses.flexGrow}>
+
+                        <Grid item xs={12} sm={7} className={globalClasses.flexColumn}>
+                            <div className={localClasses.sectionContainer}>
+                                <Map />
+                            </div>
+                        </Grid>
+
+                        <Grid item xs={12} sm={5}>
+                            <div className={localClasses.sectionContainer}>
+
+                            </div>
+                        </Grid>
+
+                        
+                    </Grid>
                 </div>
-                <Grid container className={globalClasses.flexGrow}>
-                    <Grid item xs={12} sm={7} className={globalClasses.flexColumn}>
-                        <div className={localClasses.sectionContainer}>
-                            <Map />
-                        </div>
-                    </Grid>
-
-                    <Grid item xs={12} sm={5}>
-                        <div className={localClasses.sectionContainer}>
-
-                        </div>
-                    </Grid>
-                </Grid>
             </div>
+
+            {/* Contact */}
+            <div className={clsx(globalClasses.fullScreenHeight, globalClasses.flex)}>
+                <div className={clsx(globalClasses.flex, globalClasses.flexColumn, globalClasses.flexGrow, localClasses.section)}>
+                    <div className={clsx(globalClasses.centerAll, localClasses.sectionHeader)}>
+                        <Typography variant="h4" className={globalClasses.underlineBorder}>Contact</Typography>
+                    </div>
+                    <div className={clsx(globalClasses.flex, globalClasses.flexGrow, globalClasses.centerAll)}>
+                        <div className={clsx(localClasses.section, localClasses.contactContainer)}>
+                            <form className={clsx(localClasses.section, localClasses.contactForm)}
+                                name="contact"
+                                method="POST"
+                                data-netlify="true">
+                                <TextField
+                                    id="email-input"
+                                    label="Email"
+                                    type="email"
+                                    autoComplete="email"
+                                    variant="outlined"
+                                    color="secondary"
+                                    />
+                                <TextField
+                                    id="message-input"
+                                    label="Message"
+                                    multiline
+                                    rows={4}
+                                    variant="outlined"
+                                    color="secondary"
+                                    />
+                                <Button type="submit" variant="contained" color="secondary">Submit</Button>
+                            </form>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+
             <Footer />
         </React.Fragment>
     );
