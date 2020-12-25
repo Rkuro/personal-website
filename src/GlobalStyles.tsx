@@ -12,10 +12,16 @@ export const globalStyles = makeStyles((theme: Theme) =>{
             display: "flex",
             flexDirection: "column"
         },
+        flexGrow: {
+            flex: 1
+        },
         centerAll: {
             display: "flex",
             justifyContent: "center",
             alignItems: "center"
+        },
+        lightBackground: {
+            background: theme.palette.primary.light
         },
         footer: {
             position: "absolute",
@@ -24,12 +30,6 @@ export const globalStyles = makeStyles((theme: Theme) =>{
         },
         paddingDefault: {
             padding: theme.spacing(3)
-        },
-        mapContainer: {
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            padding: theme.spacing(4)
         }
     };
 });

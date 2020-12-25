@@ -1,20 +1,26 @@
 import React from 'react';
 import { globalStyles } from '../src/GlobalStyles';
 import clsx from 'clsx';
-import { Divider, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Divider, Grid, makeStyles, Typography } from '@material-ui/core';
 import Footer from '../src/Footer';
 import { motion } from 'framer-motion';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import CircleImg from '../src/CircleImg';
 import Map from '../src/Map';
+import theme from '../src/theme';
 
-const localStyles = makeStyles((theme: Theme) => {
+const localStyles = makeStyles(() => {
     return {
         sectionHeader: {
-            padding: theme.spacing(5),
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
+            padding: `${theme.spacing(2)}px 0`
+        },
+        sectionContainer: {
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
         }
     };
 });
@@ -78,26 +84,24 @@ export default function Index() {
                 </Grid>
             </div>
 
-            <Divider orientation="horizontal" />
+            <Divider orientation="horizontal"/>
 
 
             {/* Map & Timeline */}
-            <div className={clsx(globalClasses.fullScreenHeight, globalClasses.flex)}>
-                <Grid container>
+            <div className={clsx(globalClasses.fullScreenHeight, globalClasses.flex, globalClasses.lightBackground, globalClasses.flexColumn)}>
+                <div className={clsx(globalClasses.centerAll, localClasses.sectionHeader)}>
+                    <Typography variant="h4">Timeline</Typography>
+                </div>
+                <Grid container className={globalClasses.flexGrow}>
                     <Grid item xs={12} sm={7} className={globalClasses.flexColumn}>
-                        <div className={localClasses.sectionHeader}>
-                            <Typography variant="h4">Space</Typography>
-                        </div>
-                        <div className={globalClasses.mapContainer}>
+                        <div className={localClasses.sectionContainer}>
                             <Map />
                         </div>
                     </Grid>
 
-                    <Divider orientation="vertical" flexItem />
+                    <Grid item xs={12} sm={5}>
+                        <div className={localClasses.sectionContainer}>
 
-                    <Grid item xs={12} sm={4}>
-                        <div className={localClasses.sectionHeader}>
-                            <Typography variant="h4">Time</Typography>
                         </div>
                     </Grid>
                 </Grid>
