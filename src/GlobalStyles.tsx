@@ -30,6 +30,9 @@ export const globalStyles = makeStyles((theme: Theme) =>{
         },
         paddingDefault: {
             padding: theme.spacing(3)
+        },
+        underlineBorder: {
+            borderBottom: "3px solid white"
         }
     };
 });
