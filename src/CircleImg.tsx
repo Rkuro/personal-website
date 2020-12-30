@@ -1,22 +1,22 @@
 import { makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { useState, useEffect, useRef } from 'react';
+import useWindowSize from '../hooks/WindowSize';
 
-
-const useStyles = makeStyles(() =>{
+const useStyles = makeStyles(() => {
     return {
         circleImg: {
-            width: "100%",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            borderRadius: "50%"
-        }
+            width: '100%',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            borderRadius: '50%',
+        },
     };
 });
 
 export interface CircleImgProps {
-    src: string,
+    src: string;
 }
 
 export default function CircleImg(props: CircleImgProps) {
@@ -24,32 +24,35 @@ export default function CircleImg(props: CircleImgProps) {
     const circleImg = useRef(null) as any;
     const [height, setHeight] = useState();
 
-    useEffect(() => {
+    const updateHeight = () => {
         if (circleImg.current) {
-            console.log("circleImg", circleImg.current.offsetWidth);
+            console.log('circleImg', circleImg.current.offsetWidth);
             setHeight(() => circleImg.current.offsetWidth);
         }
-    }, [circleImg.current]);
+    };
+
+    useEffect(() => {
+        updateHeight();
+    }, [updateHeight]);
+
+    useWindowSize(() => {
+        console.log('window size changed');
+        updateHeight();
+    });
 
     let style: CSSProperties = {
         backgroundImage: `url(${props.src})`,
-        height: height
-    }
+        height: height,
+    };
 
     style = {
         ...style,
-        ...props
-    }
-
-    console.log("render circleImg:", circleImg.current);
-    // if (circleImg.current != null) {
-    //     style.height = circleImg.current.offsetWidth;
-    // }
-    
+        ...props,
+    };
 
     return (
         <React.Fragment>
-            <div ref={circleImg} className={classes.circleImg} style={style}/>
+            <div ref={circleImg} className={classes.circleImg} style={style} />
         </React.Fragment>
     );
 }
