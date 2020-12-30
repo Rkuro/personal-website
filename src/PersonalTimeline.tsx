@@ -4,7 +4,7 @@ import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import React, { Dispatch, FC, ReactElement, SetStateAction } from 'react';
+import React, { Dispatch, FC, SetStateAction } from 'react';
 
 // const useLocalClasses = makeStyles(() => {
 //     return {
