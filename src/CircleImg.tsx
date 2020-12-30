@@ -19,26 +19,20 @@ export interface CircleImgProps {
     src: string;
 }
 
-export default function CircleImg(props: CircleImgProps) {
+export default function CircleImg(props: CircleImgProps): JSX.Element {
     const classes = useStyles();
-    const circleImg = useRef(null) as any;
-    const [height, setHeight] = useState();
+    const circleImg = useRef<HTMLDivElement>(null);
+    const [height] = useState<number | undefined>();
 
     const updateHeight = () => {
-        if (circleImg.current) {
-            console.log('circleImg', circleImg.current.offsetWidth);
-            setHeight(() => circleImg.current.offsetWidth);
-        }
+        return circleImg.current?.offsetWidth;
     };
 
     useEffect(() => {
         updateHeight();
-    }, [updateHeight]);
+    }, []);
 
-    useWindowSize(() => {
-        console.log('window size changed');
-        updateHeight();
-    });
+    useWindowSize(updateHeight);
 
     let style: CSSProperties = {
         backgroundImage: `url(${props.src})`,

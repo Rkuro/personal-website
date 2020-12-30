@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import MuiLink from '@material-ui/core/Link';
 import { globalStyles } from '../src/GlobalStyles';
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
     const classes = globalStyles();
     return (
         <div className={classes.footer}>

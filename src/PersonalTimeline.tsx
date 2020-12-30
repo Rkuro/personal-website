@@ -1,25 +1,23 @@
-import { makeStyles, useTheme } from '@material-ui/core';
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, FC, ReactElement, SetStateAction } from 'react';
 
-const useLocalClasses = makeStyles(() => {
-    return {
-        timeline: {},
-    };
-});
+// const useLocalClasses = makeStyles(() => {
+//     return {
+//         timeline: {},
+//     };
+// });
 
 export interface PersonalTimelineProps {
     selectedTimelineItem: number;
     setSelectedTimelineItem: Dispatch<SetStateAction<number>>;
 }
 
-export default function PersonalTimeline(props: PersonalTimelineProps) {
-    const theme = useTheme();
+const PersonalTimeline: FC<PersonalTimelineProps> = (): JSX.Element => {
     return (
         <React.Fragment>
             <Timeline>
@@ -46,4 +44,6 @@ export default function PersonalTimeline(props: PersonalTimelineProps) {
             </Timeline>
         </React.Fragment>
     );
-}
+};
+
+export default PersonalTimeline;

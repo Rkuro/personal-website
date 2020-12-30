@@ -1,6 +1,6 @@
 // import { useLayoutEffect, useState } from 'react';
 
-export default function useWindowSize(someFunc: () => number) {
+export default function useWindowSize(someFunc: () => void): void {
     if (typeof window !== 'undefined' && window) {
         window.addEventListener('resize', () => someFunc());
     }

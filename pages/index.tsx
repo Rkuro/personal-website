@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { globalStyles } from '../src/GlobalStyles';
 import clsx from 'clsx';
 import { Button, Divider, Grid, makeStyles, TextField, Theme, Typography } from '@material-ui/core';
@@ -46,7 +46,7 @@ const localStyles = makeStyles((theme: Theme) => {
     };
 });
 
-export default function Index() {
+export default function Index(): ReactElement {
     const globalClasses = globalStyles();
     const localClasses = localStyles();
     const [selectedTimelineItem, setSelectedTimelineItem] = useState(0);

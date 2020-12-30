@@ -13,7 +13,7 @@ const useLocalClasses = makeStyles((theme: Theme) => {
     };
 });
 
-export default function Map() {
+export default function Map(): JSX.Element {
     const classes = useLocalClasses();
 
     const [viewport, setViewport] = React.useState({
