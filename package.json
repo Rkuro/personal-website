@@ -21,7 +21,7 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^1.0.3",
+    "@netlify/plugin-nextjs": "^1.0.5",
     "@types/next": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
