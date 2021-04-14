@@ -1,7 +1,7 @@
 import { makeStyles, Theme } from '@material-ui/core';
 import { FeatureCollection } from 'geojson';
 import * as React from 'react';
-import ReactMapGL, { Layer, Source } from 'react-map-gl';
+import ReactMapGL, { Layer, Source, ViewportProps } from 'react-map-gl';
 import data from '../data/points.json';
 
 const useLocalClasses = makeStyles((theme: Theme) => {
@@ -53,7 +53,7 @@ export default function Map(): JSX.Element {
                     {...viewport}
                     width="100%"
                     height="100%"
-                    onViewportChange={(viewport) => setViewport(viewport)}
+                    onViewportChange={(viewport: ViewportProps) => setViewport(viewport)}
                     mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
                 >
                     <Source type="geojson" data={data as FeatureCollection}>
