@@ -1,6 +1,8 @@
 import { makeStyles, Theme } from '@material-ui/core';
+import { FeatureCollection } from 'geojson';
 import * as React from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Layer, Source } from 'react-map-gl';
+import data from '../data/points.json';
 
 const useLocalClasses = makeStyles((theme: Theme) => {
     return {
@@ -12,6 +14,28 @@ const useLocalClasses = makeStyles((theme: Theme) => {
         },
     };
 });
+
+const dataLayer = {
+    id: 'data',
+    type: 'fill',
+    paint: {
+        'fill-color': {
+            property: 'percentile',
+            stops: [
+                [0, '#3288bd'],
+                [1, '#66c2a5'],
+                [2, '#abdda4'],
+                [3, '#e6f598'],
+                [4, '#ffffbf'],
+                [5, '#fee08b'],
+                [6, '#fdae61'],
+                [7, '#f46d43'],
+                [8, '#d53e4f'],
+            ],
+        },
+        'fill-opacity': 0.8,
+    },
+};
 
 export default function Map(): JSX.Element {
     const classes = useLocalClasses();
@@ -31,7 +55,11 @@ export default function Map(): JSX.Element {
                     height="100%"
                     onViewportChange={(viewport) => setViewport(viewport)}
                     mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
-                />
+                >
+                    <Source type="geojson" data={data as FeatureCollection}>
+                        <Layer {...dataLayer} />
+                    </Source>
+                </ReactMapGL>
             </div>
         </React.Fragment>
     );

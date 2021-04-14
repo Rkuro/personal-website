@@ -69,6 +69,8 @@ export default function Index(): ReactElement {
         duration: 1.5,
     };
 
+    console.log('render');
+
     return (
         <React.Fragment>
             {/* Intro */}
