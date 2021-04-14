@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import clsx from 'clsx';
 import React, { useState, useEffect, useRef } from 'react';
 import useWindowSize from '../hooks/WindowSize';
 
@@ -17,6 +18,7 @@ const useStyles = makeStyles(() => {
 
 export interface CircleImgProps {
     src: string;
+    className?: string;
 }
 
 export default function CircleImg(props: CircleImgProps): JSX.Element {
@@ -46,7 +48,7 @@ export default function CircleImg(props: CircleImgProps): JSX.Element {
 
     return (
         <React.Fragment>
-            <div ref={circleImg} className={classes.circleImg} style={style} />
+            <div ref={circleImg} className={clsx(classes.circleImg, props.className)} style={style} />
         </React.Fragment>
     );
 }
