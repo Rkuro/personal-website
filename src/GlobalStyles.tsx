@@ -31,6 +31,19 @@ export const globalStyles = makeStyles((theme: Theme) => {
         paddingDefault: {
             padding: theme.spacing(3),
         },
+        section: {
+            padding: `${theme.spacing(3)}px`,
+        },
+        sectionHeader: {
+            width: '100%',
+            textAlign: 'center',
+            paddingBottom: `${theme.spacing(5)}px`,
+        },
+        sectionContainer: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
         underlineBorder: {
             borderBottom: '3px solid white',
         },
