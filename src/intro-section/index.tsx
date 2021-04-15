@@ -5,7 +5,6 @@ import React, { FC } from 'react';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { globalStyles } from '../GlobalStyles';
 import Image from 'next/image';
-import bluehills from '../assets/blue-hills.jpeg';
 
 const localStyles = makeStyles(() => {
     return {
