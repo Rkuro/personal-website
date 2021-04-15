@@ -5,18 +5,18 @@ import { Typography, Grid } from '@material-ui/core';
 import Map from './Map';
 import PersonalTimeline from './PersonalTimeline';
 
-const timeline_data = {
-    items: [
-        {
-            date: new Date(1388552400000), // 2014/01/01
-            title: 'Accepted at Boston University',
-            location: {
-                lat: '42.352930',
-                long: '-71.120520',
-            },
-        },
-    ],
-};
+// const timeline_data = {
+//     items: [
+//         {
+//             date: new Date(1388552400000), // 2014/01/01
+//             title: 'Accepted at Boston University',
+//             location: {
+//                 lat: '42.352930',
+//                 long: '-71.120520',
+//             },
+//         },
+//     ],
+// };
 
 const TimelineSection: FC = (): JSX.Element => {
     const globalClasses = globalStyles();

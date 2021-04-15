@@ -33,23 +33,23 @@ const PersonalTimeline: FC<PersonalTimelineProps> = (): JSX.Element => {
     );
 };
 
-export interface PersonalTimelineItemProps {
-    index: number;
-    onMouseOver: () => void;
-}
+// export interface PersonalTimelineItemProps {
+//     index: number;
+//     onMouseOver: () => void;
+// }
 
-const PersonalTimelineItem: FC<PersonalTimelineItemProps> = (): JSX.Element => {
-    return (
-        <div>
-            <TimelineItem>
-                <TimelineSeparator>
-                    <TimelineDot />
-                    <TimelineConnector />
-                </TimelineSeparator>
-                <TimelineContent>Born</TimelineContent>
-            </TimelineItem>
-        </div>
-    );
-};
+// const PersonalTimelineItem: FC<PersonalTimelineItemProps> = (): JSX.Element => {
+//     return (
+//         <div>
+//             <TimelineItem>
+//                 <TimelineSeparator>
+//                     <TimelineDot />
+//                     <TimelineConnector />
+//                 </TimelineSeparator>
+//                 <TimelineContent>Born</TimelineContent>
+//             </TimelineItem>
+//         </div>
+//     );
+// };
 
 export default PersonalTimeline;
