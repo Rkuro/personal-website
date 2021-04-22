@@ -5,51 +5,43 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import React, { Dispatch, FC, SetStateAction } from 'react';
+import { TimelineDataItem } from '.';
 
 export interface PersonalTimelineProps {
-    selectedTimelineItem: number;
-    setSelectedTimelineItem: Dispatch<SetStateAction<number>>;
+    selectedTimelineIndex: number;
+    setSelectedTimelineIndex: Dispatch<SetStateAction<number>>;
+    timelineData: Array<TimelineDataItem>;
 }
 
-const PersonalTimeline: FC<PersonalTimelineProps> = (): JSX.Element => {
+const PersonalTimeline: FC<PersonalTimelineProps> = (props: PersonalTimelineProps): JSX.Element => {
     return (
         <React.Fragment>
             <Timeline>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot />
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent>School</TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot />
-                    </TimelineSeparator>
-                    <TimelineContent>Sleep</TimelineContent>
-                </TimelineItem>
+                {props.timelineData.map((timelineDataItem: TimelineDataItem, index: number) => {
+                    return <PersonalTimelineItem key={index} selectedItem={timelineDataItem} {...props} />;
+                })}
             </Timeline>
         </React.Fragment>
     );
 };
 
-// export interface PersonalTimelineItemProps {
-//     index: number;
-//     onMouseOver: () => void;
-// }
+interface PersonalTimelineItemProps extends PersonalTimelineProps {
+    selectedItem: TimelineDataItem;
+}
 
-// const PersonalTimelineItem: FC<PersonalTimelineItemProps> = (): JSX.Element => {
-//     return (
-//         <div>
-//             <TimelineItem>
-//                 <TimelineSeparator>
-//                     <TimelineDot />
-//                     <TimelineConnector />
-//                 </TimelineSeparator>
-//                 <TimelineContent>Born</TimelineContent>
-//             </TimelineItem>
-//         </div>
-//     );
-// };
+const PersonalTimelineItem: FC<PersonalTimelineItemProps> = (props: PersonalTimelineItemProps): JSX.Element => {
+    return (
+        <div>
+            <TimelineItem>
+                <TimelineSeparator>
+                    <TimelineDot />
+                    <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>{props.selectedItem.title}</TimelineContent>
+                <TimelineContent>{props.selectedItem.date.toLocaleDateString()}</TimelineContent>
+            </TimelineItem>
+        </div>
+    );
+};
 
 export default PersonalTimeline;

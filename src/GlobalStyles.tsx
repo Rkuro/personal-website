@@ -37,7 +37,7 @@ export const globalStyles = makeStyles((theme: Theme) => {
         sectionHeader: {
             width: '100%',
             textAlign: 'center',
-            paddingBottom: `${theme.spacing(5)}px`,
+            padding: `${theme.spacing(5)}px 0`,
         },
         sectionContainer: {
             flex: 1,
