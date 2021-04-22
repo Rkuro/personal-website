@@ -14,4 +14,7 @@ npm install
 npm run dev
 ```
 
-Need to update with netlify links and such.
+# Important notes:
+- Data for the timeline lives in src/timeline-section/index.tsx
+- Most of the assets live in the public/ folder
+- Deployment runs through netlify CI builds [link](https://app.netlify.com/sites/relaxed-golick-31b48a/overview)

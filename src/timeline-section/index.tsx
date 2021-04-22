@@ -5,23 +5,30 @@ import { Typography, Grid } from '@material-ui/core';
 import Map from './Map';
 import PersonalTimeline from './PersonalTimeline';
 
-// const timeline_data = {
-//     items: [
-//         {
-//             date: new Date(1388552400000), // 2014/01/01
-//             title: 'Accepted at Boston University',
-//             location: {
-//                 lat: '42.352930',
-//                 long: '-71.120520',
-//             },
-//         },
-//     ],
-// };
+export interface TimelineDataItem {
+    date: Date;
+    title: string;
+    location: {
+        lat: string;
+        long: string;
+    };
+}
+
+const timeline_data: Array<TimelineDataItem> = [
+    {
+        date: new Date(1388552400000), // 2014/01/01
+        title: 'Accepted at Boston University',
+        location: {
+            lat: '42.352930',
+            long: '-71.120520',
+        },
+    },
+];
 
 const TimelineSection: FC = (): JSX.Element => {
     const globalClasses = globalStyles();
 
-    const [selectedTimelineItem, setSelectedTimelineItem] = useState(0);
+    const [selectedTimelineIndex, setSelectedTimelineIndex] = useState(0);
 
     return (
         <div className={clsx(globalClasses.fullScreenHeight, globalClasses.lightBackground, globalClasses.flex)}>
@@ -41,8 +48,9 @@ const TimelineSection: FC = (): JSX.Element => {
                                 </Typography>
                             </div>
                             <PersonalTimeline
-                                selectedTimelineItem={selectedTimelineItem}
-                                setSelectedTimelineItem={setSelectedTimelineItem}
+                                selectedTimelineIndex={selectedTimelineIndex}
+                                setSelectedTimelineIndex={setSelectedTimelineIndex}
+                                timelineData={timeline_data}
                             />
                         </div>
                     </Grid>
