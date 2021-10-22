@@ -27,7 +27,7 @@
     "@types/react": "^17.0.24",
     "@types/react-dom": "latest",
     "@types/react-map-gl": "^6.1.1",
-    "@types/react-typist": "^2.0.2",
+    "@types/react-typist": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
     "eslint": "^8.0.1",
