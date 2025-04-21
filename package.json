@@ -24,7 +24,7 @@
     "@netlify/plugin-nextjs": "^5.10.6",
     "@types/next": "latest",
     "@types/node": "^22.14.0",
-    "@types/react": "^19.0.12",
+    "@types/react": "^19.1.2",
     "@types/react-dom": "^19.0.4",
     "@types/react-map-gl": "^6.1.7",
     "@types/react-typist": "^2.0.6",
