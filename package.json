@@ -23,7 +23,7 @@
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.12.1",
     "@types/next": "latest",
-    "@types/node": "^24.3.0",
+    "@types/node": "^24.3.1",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.9",
     "@types/react-map-gl": "^6.1.7",
