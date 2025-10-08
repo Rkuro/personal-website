@@ -9,8 +9,8 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.22",
     "next": "^15.5.4",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-map-gl": "^8.0.4"
   },
   "scripts": {
